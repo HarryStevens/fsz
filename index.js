@@ -2,6 +2,8 @@
 
 var fs = require("fs");
 
+module.exports = fs;
+
 /**
  * Reads and parses a JSON file
  * @param {string} file
