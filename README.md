@@ -1,4 +1,4 @@
-# fsz
+# fsz [![Build Status](https://travis-ci.org/HarryStevens/fsz.svg?branch=master)](https://travis-ci.org/HarryStevens/fsz) [![Coverage Status](https://coveralls.io/repos/github/HarryStevens/fsz/badge.svg?branch=master)](https://coveralls.io/github/HarryStevens/fsz?branch=master)
 Frequently used Node functions.
 
 ## Installation
