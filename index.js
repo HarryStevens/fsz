@@ -51,7 +51,7 @@ module.exports.writeJSON = function(file, json){
 			file = file + ".json";
 		}
 	}
-  return fs.writeFileSync(file + ".json", JSON.stringify(json));
+  return fs.writeFileSync(file, JSON.stringify(json));
 };
 
 /**
