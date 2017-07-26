@@ -12,13 +12,17 @@ var fsz = require("fsz");
 
 ## Usage
 
-<a name="readJSON" href="#readJSON">#</a> fsz.<b>getDirectories</b>(<i>string</i>)
+<a name="getDirectories" href="#getDirectories">#</a> fsz.<b>getDirectories</b>(<i>directory</i>)
 
 Gets a list of directories in another directory.
 
-<a name="readJSON" href="#readJSON">#</a> fsz.<b>readJSON</b>(<i>string</i>)
+<a name="readJSON" href="#readJSON">#</a> fsz.<b>readJSON</b>(<i>file</i>)
 
 Reads and parses a JSON file.
+
+<a name="writeJSON" href="#writeJSON">#</a> fsz.<b>writeJSON</b>(<i>file</i>, <i>json</i>)
+
+Write a JSON file. If you forget to add the `.json` extension, it will be added to the `file` for you.
 
 
 ## Tests
