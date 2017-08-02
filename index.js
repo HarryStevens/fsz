@@ -59,8 +59,20 @@ module.exports.writeJSON = function(file, json){
  * @param {string} path
  * @return {object}
  */
-module.exports.getDirectories = function(path){
+function getDirectories(path){
   return fs.readdirSync(path).filter(function (file) {
     return fs.statSync(path + "/" + file).isDirectory();
-  });
+  });	
 }
+
+module.exports.getDirectories = getDirectories;
+
+/**
+ * Makes a directory if it doesn't already exist in a path
+ * @param {string} path
+ * @param {string} dir
+ * @dependencies getDirectories
+ */
+ module.exports.mkdirIf = function(path, dir){
+ 	if (getDirectories(path).indexOf(dir) == -1) fsz.mkdir(dir);
+ }

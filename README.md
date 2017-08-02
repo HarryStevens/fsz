@@ -16,6 +16,10 @@ var fsz = require("fsz");
 
 Gets a list of directories in another directory.
 
+<a name="mkdirIf" href="#mkdirIf">#</a> fsz.<b>mkdirIf</b>(<i>parent</i>, <i>directory</i>)
+
+Makes a new directory in a parent directory, only if the new directory does not already exist.
+
 <a name="readJSON" href="#readJSON">#</a> fsz.<b>readJSON</b>(<i>file</i>)
 
 Reads and parses a JSON file.
