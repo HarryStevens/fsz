@@ -74,5 +74,6 @@ module.exports.getDirectories = getDirectories;
  * @dependencies getDirectories
  */
  module.exports.mkdirIf = function(dir, parent){
- 	if (getDirectories(parent ? parent : ".").indexOf(dir) == -1) fs.mkdir(dir);
+ 	var path = parent ? parent : ".";
+ 	if (getDirectories(path).indexOf(dir) == -1) fs.mkdir(path + "/" + dir);
  }
