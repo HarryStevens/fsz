@@ -17,4 +17,10 @@ describe("#rdjson", function() {
     	expect(result.indexOf("blech")).to.equal(-1);
     });
 
+    it("should not make a directory if it already exists", function(){
+        fsz.mkdirIf("test");
+        var result = fsz.getDirectories(".");
+        expect(result.indexOf("blech")).to.equal(-1);
+    });
+
 });

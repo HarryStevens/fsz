@@ -73,6 +73,6 @@ module.exports.getDirectories = getDirectories;
  * @param {string} dir
  * @dependencies getDirectories
  */
- module.exports.mkdirIf = function(path, dir){
- 	if (getDirectories(path).indexOf(dir) == -1) fs.mkdir(dir);
+ module.exports.mkdirIf = function(dir, parent){
+ 	if (getDirectories(parent ? parent : ".").indexOf(dir) == -1) fs.mkdir(dir);
  }
