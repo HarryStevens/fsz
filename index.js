@@ -24,26 +24,29 @@ SOFTWARE.
 
 "use strict";
 
-var fs = require("fs");
+var fs = require("fs"),
+	http = require("http");
 
 module.exports = fs;
+module.exports = http;
 
 /**
- * Reads and parses a JSON file
- * @param {string} file
- * @return {object}
- */
-module.exports.readJSON = function(file){
+* Reads and parses a JSON file
+* @param {string} file The JSON file
+* @return {array} An array with the data 
+*/
+function readJSON(file){
   return JSON.parse(fs.readFileSync(file, "utf8"));
 };
 
+module.exports.readJSON = readJSON;
+
 /**
- * Writes a JSON file
- * @param {string} file name (.json extension will be added)
- * @param {string} json
- * @return {object}
- */
-module.exports.writeJSON = function(file, json){
+* Writes a JSON file
+* @param {string} file Name of the output file (.json extension will be added)
+* @param {string} json The JSON variable
+*/
+function writeJSON(file, json){
 	var s = file.split(".");
 	if (s.length > 0) {
 		var ext = s[s.length - 1];
@@ -51,14 +54,16 @@ module.exports.writeJSON = function(file, json){
 			file = file + ".json";
 		}
 	}
-  return fs.writeFileSync(file, JSON.stringify(json));
+  fs.writeFileSync(file, JSON.stringify(json));
 };
 
+module.exports.writeJSON = writeJSON;
+
 /**
- * Gets all directores in another directory
- * @param {string} path
- * @return {object}
- */
+* Returns a list of all directories in a parent directory
+* @param {string} path The path of the parent directory
+* @return {array} An array with a list of directories 
+*/
 function getDirectories(path){
   return fs.readdirSync(path).filter(function (file) {
     return fs.statSync(path + "/" + file).isDirectory();
@@ -68,12 +73,26 @@ function getDirectories(path){
 module.exports.getDirectories = getDirectories;
 
 /**
- * Makes a directory if it doesn't already exist in a path
- * @param {string} path
- * @param {string} dir
- * @dependencies getDirectories
- */
- module.exports.mkdirIf = function(dir, parent){
- 	var path = parent ? parent : ".";
- 	if (getDirectories(path).indexOf(dir) == -1) fs.mkdir(path + "/" + dir);
- }
+* Makes a directory if it doesn't already exist in a parent directory. Dependencies: getDirectories
+* @param {string} dir The name of the new directory
+* @param {string} [parent=.] The name of the parent directory
+*/
+function mkdirIf(dir, parent) {
+	var path = parent ? parent : ".";
+	if (getDirectories(path).indexOf(dir) == -1) fs.mkdir(path + "/" + dir);
+}
+
+module.exports.mkdirIf = mkdirIf;
+
+/**
+* Downloads a file.
+* @param {string} input The input file path, often a URL.
+* @param {string} [output] The name of the downloaded file.
+*/
+function download(input, output) {
+	if (!output) output = input.split("/").pop();
+	var file = fs.createWriteStream(output);
+	var request = http.get(input, response => { response.pipe(file); });
+}
+
+module.exports.download = download;
