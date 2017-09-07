@@ -87,7 +87,7 @@ module.exports.mkdirIf = mkdirIf;
 /**
 * Downloads a file.
 * @param {string} input The input file path, often a URL.
-* @param {string} [output] The name of the downloaded file.
+* @param {string} [output=input file name] The name of the downloaded file.
 */
 function download(input, output) {
 	if (!output) output = input.split("/").pop();
