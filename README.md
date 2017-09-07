@@ -1,6 +1,7 @@
 # fsz
 
 [![Build Status](https://travis-ci.org/HarryStevens/fsz.svg?branch=master)](https://travis-ci.org/HarryStevens/fsz)
+
 Node functions that I use a lot.
 
 ## Installation
