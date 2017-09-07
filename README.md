@@ -1,6 +1,7 @@
-# fsz [![Build Status](https://travis-ci.org/HarryStevens/fsz.svg?branch=master)](https://travis-ci.org/HarryStevens/fsz) [![Coverage Status](https://coveralls.io/repos/github/HarryStevens/fsz/badge.svg?branch=master)](https://coveralls.io/github/HarryStevens/fsz?branch=master)
+# fsz
 
-This library contains functions to supplement [Node's File System module](https://nodejs.org/api/fs.html#fs_file_system). It also exports the File System module itself, so you don't have to `require("fs")` either.
+[![Build Status](https://travis-ci.org/HarryStevens/fsz.svg?branch=master)](https://travis-ci.org/HarryStevens/fsz)
+Node functions that I use a lot.
 
 ## Installation
 ```bash
