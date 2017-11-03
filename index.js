@@ -79,7 +79,7 @@ module.exports.getDirectories = getDirectories;
 */
 function mkdirIf(dir, parent) {
 	var path = parent ? parent : ".";
-	if (getDirectories(path).indexOf(dir) == -1) fs.mkdir(path + "/" + dir);
+	if (getDirectories(path).indexOf(dir) == -1) fs.mkdirSync(path + "/" + dir);
 }
 
 module.exports.mkdirIf = mkdirIf;
